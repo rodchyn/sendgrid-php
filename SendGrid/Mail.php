@@ -130,11 +130,12 @@ class Mail
    * setFrom
    * set the from email
    * @param String $email - an email address
+   * @param String $name - a name (optional)
    * @return the SendGrid\Mail object.
    */
-  public function setFrom($email)
+  public function setFrom($email, $name=null)
   {
-    $this->from = $email;
+    $this->from = ($name) ? array($email => $name) : $email;
     return $this;
   }
   
